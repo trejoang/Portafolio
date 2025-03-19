@@ -1,0 +1,223 @@
+--- CON PL/SQL VAMOS A PODER CREAR LO QUE SON BLOQUES PL/SQL QUE SON CODIGOS QUE PUEDEN EJECUTAR SENTENCIAS
+-- DECLARACIONES: ES DONDE SE DECLARAN CONSTANTES, VARIABLES Y CURSORES QUE SE UTILIZARAN EN EL BLOQUE
+--LAS INSTRUCIONES QUE CONTIENEN LAS SENTENCIAS A EJECUTAR 
+-- Y LAS EXCEPCIONES: SE PUEDEN CAPTURAR EXCECIONES EN EL SISTEMA PARA EL MANEJO DE ERRORES
+/*
+  DECLARE | IS/AS
+  BEGIN(INICI BLOQUE)
+  .....
+  EXCEPCIONES
+  END;
+  /
+*/
+
+DECLARE --DECLARACION DE VARIABLES,CONSTANTES Y CURSORES
+LV_VARIBLE NUMBER := 0;
+
+BEGIN --INICIA LA EJECUION
+   DBMS_OUTPUT.PUT_LINE('HOLA DESDE BLOQUE ANONIMO PL/SQL');
+   END;
+   / --INDICADOR --HASTA AQUI SE EJECUTARA
+
+--USO DE CICLOS CON PL/SQL
+DECLARE 
+LV_VARIABLE NUMBER :=0;
+BEGIN
+   LOOP
+      DBMS_OUTPUT.PUT_LINE('VALOR: ' || LV_VARIABLE);
+      LV_VARIABLE := LV_VARIABLE + 1;
+      -- DEBE DE SALIR DEL CICLO CUANDO LV_VARIABLE SEA IGUAL A 10
+      IF LV_VARIABLE = 10
+      THEN EXIT;
+      END IF;
+      END LOOP;
+      
+    END;
+    /
+--USO DE FOR Y LOOP    
+DECLARE 
+BEGIN
+    FOR i IN 1..10
+        LOOP
+          DBMS_OUTPUT.PUT_LINE('VALOR DE LA VARIABLE FOR: ' ||i);
+          EXIT WHEN i = 6;
+       END LOOP;
+    END;
+  /
+  
+--USO DE WHILE
+DECLARE
+LV_ITERATOR NUMBER :=1;
+BEGIN
+    WHILE LV_ITERATOR <= 6
+      LOOP 
+        DBMS_OUTPUT.PUT_LINE('VALOR DEL ITERATOR CON WHILE: ' || LV_ITERATOR);
+        LV_ITERATOR := LV_ITERATOR +1; 
+    END LOOP;
+END;
+/
+
+--USO DE VARIABLES BOOLEANDA
+
+DECLARE
+LV_VALIDADOR BOOLEAN := FALSE;
+BEGIN 
+    FOR i IN  1..20
+       LOOP
+          DBMS_OUTPUT.PUT_LINE('VALOR DEL ITERATOR ' || i);
+          IF i = 9 THEN
+            LV_VALIDADOR := TRUE;
+            END IF;
+           EXIT WHEN LV_VALIDADOR;
+        END LOOP;
+    END;
+/
+
+/*
+EJERCICIO EN UN BLOQUE PL/SQL LA IMPRESION EN CONSOLA DE:
+NOMBRE COMPLETO, CARRERA, ESTADO DONDE VIVE
+--- IMPLIMIR TABLAS DE MULPIPLICACION DEL 1 AL 10
+     ELEMPLO
+     TABLA DEL 1
+     1 * 1 = 1
+*/
+-------------------
+--IMPRIMIR NOMBRE,CARRERA,ESTADO
+DECLARE 
+LV_VARIBLE NUMBER := 0;
+BEGIN 
+   DBMS_OUTPUT.PUT_LINE('ANGEL TREJO ANGELES');
+   DBMS_OUTPUT.PUT_LINE('INGENERIA EN TECNOLOGIAS DE LA INFORMACION Y COMUNICACIONES');
+   DBMS_OUTPUT.PUT_LINE('ESTADO DE MEXICO');
+   END;
+   / 
+ -- otra forma
+ 
+   DECLARE 
+      LV_NOMBRE NVARCHAR2(100) := 'ANGEL TREJO ANGELES';
+      LV_CARRERA NVARCHAR2(100) := 'INGENERIA EN TECNOLOGIAS DE LA INFORMACION Y COMUNICACIONES';
+      LV_ESTADO NVARCHAR2(100) := 'ESTADO DE MEXICO';
+       BEGIN 
+       DBMS_OUTPUT.PUT_LINE('MI NOMBRE ES: '||LV_NOMBRE||' ESTUDIE'||LV_CARRERA||' Y VIVO'||LV_ESTADO);
+       END;
+   / 
+   
+-------------------
+--OTRA FORMA
+DECLARE 
+BEGIN
+    FOR i IN 1..10
+        LOOP
+          DBMS_OUTPUT.PUT_LINE('TABLA DEL ' ||i);
+          
+          FOR j IN 1..10
+          LOOP
+           DBMS_OUTPUT.PUT_LINE(i||' * '||j|| ' = '||i*j);
+           END LOOP;
+       END LOOP;
+    END;
+  /
+
+----------
+-- TABLA 1
+DECLARE 
+BEGIN
+    FOR i IN 1..10
+        LOOP
+          DBMS_OUTPUT.PUT_LINE(1 || ' X ' ||i ||' = '||i*1);
+          EXIT WHEN i = 10;
+       END LOOP;
+    END;
+  /
+-- TABLA 2
+DECLARE 
+BEGIN
+    FOR i IN 1..10
+        LOOP
+          DBMS_OUTPUT.PUT_LINE(2 || ' X ' ||i ||' = '||i*2);
+          EXIT WHEN i = 10;
+       END LOOP;
+    END;
+  /
+-- TABLA 3
+DECLARE 
+BEGIN
+    FOR i IN 1..10
+        LOOP
+          DBMS_OUTPUT.PUT_LINE(3 || ' X ' ||i ||' = '||i*3);
+          EXIT WHEN i = 10;
+       END LOOP;
+    END;
+  /
+-- TABLA 4
+DECLARE 
+BEGIN
+    FOR i IN 1..10
+        LOOP
+          DBMS_OUTPUT.PUT_LINE(4 || ' X ' ||i ||' = '||i*4);
+          EXIT WHEN i = 10;
+       END LOOP;
+    END;
+  /
+-- TABLA 5
+DECLARE 
+BEGIN
+    FOR i IN 1..10
+        LOOP
+          DBMS_OUTPUT.PUT_LINE(5 || ' X ' ||i ||' = '||i*5);
+          EXIT WHEN i = 10;
+       END LOOP;
+    END;
+  /
+-- TABLA 6
+DECLARE 
+BEGIN
+    FOR i IN 1..10
+        LOOP
+          DBMS_OUTPUT.PUT_LINE(6 || ' X ' ||i ||' = '||i*6);
+          EXIT WHEN i = 10;
+       END LOOP;
+    END;
+  /
+-- TABLA 7
+DECLARE 
+BEGIN
+    FOR i IN 1..10
+        LOOP
+          DBMS_OUTPUT.PUT_LINE(7 || ' X ' ||i ||' = '||i*7);
+          EXIT WHEN i = 10;
+       END LOOP;
+    END;
+  /
+-- TABLA 8
+DECLARE 
+BEGIN
+    FOR i IN 1..10
+        LOOP
+          DBMS_OUTPUT.PUT_LINE(8 || ' X ' ||i ||' = '||i*8);
+          EXIT WHEN i = 10;
+       END LOOP;
+    END;
+  /
+-- TABLA 9
+DECLARE 
+BEGIN
+    FOR i IN 1..10
+        LOOP
+          DBMS_OUTPUT.PUT_LINE(9 || ' X ' ||i ||' = '||i*9);
+          EXIT WHEN i = 10;
+       END LOOP;
+    END;
+  /
+-- TABLA 10
+DECLARE 
+BEGIN
+    FOR i IN 1..10
+        LOOP
+          DBMS_OUTPUT.PUT_LINE(10 || ' X ' ||i ||' = '||i*10);
+          EXIT WHEN i = 10;
+       END LOOP;
+    END;
+  /
+
+--------
